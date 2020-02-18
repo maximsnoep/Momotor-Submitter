@@ -10,6 +10,6 @@ Automating Momotor file submissions using simple a Python script.
 
 3. Run `submitter.py`.
 
-## More
+## Furthermore
 
 *Thanks to [Samuel](https://github.com/justsamuel "Github Account")*
