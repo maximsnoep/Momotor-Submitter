@@ -2,8 +2,6 @@
 
 Automating Momotor file submissions using simple a Python script.
 
----
-
 ## Usage
 
 1. Configure your file submission in `SECRET.py`.
@@ -11,8 +9,6 @@ Automating Momotor file submissions using simple a Python script.
 2. Install the dependency `selenium`.
 
 3. Run `submitter.py`.
-
----
 
 ## More
 
