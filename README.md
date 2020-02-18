@@ -2,6 +2,7 @@
 
 Automating Momotor file submissions using simple a Python script.
 
+---
 
 ## Usage
 
@@ -13,4 +14,4 @@ Automating Momotor file submissions using simple a Python script.
 
 ---
 
-* *Thanks to [Samuel](https://github.com/justsamuel "Github Account")*
+*Thanks to [Samuel](https://github.com/justsamuel "Github Account")*
