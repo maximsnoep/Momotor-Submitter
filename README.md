@@ -12,4 +12,4 @@ Automating Momotor file submissions using simple a Python script.
 
 ## Furthermore
 
-A thanks to [Samuel](https://github.com/justsamuel "Github Account")
+Bless [Samuel](https://github.com/justsamuel "Github Account")
