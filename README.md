@@ -10,3 +10,8 @@ Automating Momotor file submissions using simple a Python script.
 2. Install the dependency `selenium`.
 
 3. Run `submitter.py`.
+
+
+---
+
+*Thanks to [Samuel](https://github.com/justsamuel "Github Account")*
