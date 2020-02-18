@@ -1,6 +1,6 @@
 # Momotor Submitter
 
-Automating Momotor file submissions using simple a Python script.
+Automating Momotor file submissions using a simple Python script.
 
 ## Usage
 
