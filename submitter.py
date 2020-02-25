@@ -1,16 +1,35 @@
 #! python3
 # submitter.py - Submits files to Momotor.
 
-# --- Imports
-import SECRET
+# Imports
+import sys, os, glob
+from urllib.parse import urlparse
 from selenium import webdriver
 
-# --- Get secrets from SECRET.
-URL = SECRET.URL;
-USERNAME = SECRET.USERNAME;
-PASSWORD = SECRET.PASSWORD;
-DIR = SECRET.DIR;
-FILES = SECRET.FILES;
+USERNAME = "username"   # Canvas username
+PASSWORD = "password"   # Canvas password
+DIR = os.getcwd()       # Get cwd
+ARGUMENTS = sys.argv    # Get arguments
+
+# First given argument should be the URL
+if len(ARGUMENTS) < 2:
+    print("Please provide a URL to the submission page! \nsubmittor [URL] [FILES](optional)")
+    quit()
+temp_url = urlparse(ARGUMENTS[1])
+if temp_url[1] == "":
+    print("Please provide a URL to the submission page! \nsubmittor [URL] [FILES](optional)")
+    quit()
+URL = temp_url[0]+temp_url[1]+temp_url[2]
+
+# Other optional given arguments should be files
+FILES = []
+if ARGUMENTS[2] is not None:
+    for i in range(2, len(ARGUMENTS)):
+        temp_files = glob.glob(DIR+"/"+ARGUMENTS[i])
+        for temp_file in temp_files:
+            FILES.append(temp_file)
+else:
+    FILES.append(glob.glob(DIR+"/"+"*"))
 
 # --- Initialize the WebDriver.
 browser = webdriver.Chrome(executable_path=r'chromedriver.exe');
@@ -32,7 +51,7 @@ try:
 except:
     browser.find_element_by_link_text("Re-submit Assignment").click()
 for index, file in enumerate(FILES):
-    browser.find_element_by_name("attachments[" + str(index) + "][uploaded_data]").send_keys(DIR + file)
+    browser.find_element_by_name("attachments[" + str(index) + "][uploaded_data]").send_keys(file)
     browser.find_element_by_css_selector(".add_another_file_link").click()
 browser.find_element_by_id("submit_file_button").click()
 
