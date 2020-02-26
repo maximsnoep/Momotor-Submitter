@@ -15,7 +15,7 @@ source_dir = os.environ['DIR']
 files = os.environ['FILES'].split(',')
 
 chrome_options = Options()
-# chrome_options.add_argument("--headless")
+chrome_options.add_argument("--headless")
 
 # --- Initialize the WebDriver.
 if os.name == 'posix':
