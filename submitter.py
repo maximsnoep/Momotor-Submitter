@@ -2,6 +2,7 @@
 # submitter.py - Submits files to Momotor.
 
 # --- Importing imports. --- #
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
