@@ -4,7 +4,7 @@
 # --- Importing imports. --- #
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
-import os
+import os, glob
 
 # --- Get variables from ENV. --- #
 url = os.environ['SUBMITTER_URL']
@@ -35,13 +35,16 @@ else:
     print("    Already signed in...")
 
 # Submit files.
-print("    Submitting", len(files), "files...")
+all_files = []
+for file in files:
+    all_files.extend(glob.glob(source_dir+file))
+print("    Submitting", len(all_files), "files...")
 try:
     browser.find_element_by_link_text("Submit Assignment").click()
 except:
     browser.find_element_by_link_text("Re-submit Assignment").click()
-for index, file in enumerate(files):
-    browser.find_element_by_name("attachments[" + str(index) + "][uploaded_data]").send_keys(source_dir + file)
+for index, file in enumerate(all_files):
+    browser.find_element_by_name("attachments[" + str(index) + "][uploaded_data]").send_keys(file)
     browser.find_element_by_css_selector(".add_another_file_link").click()
 browser.find_element_by_id("submit_file_button").click()
 
