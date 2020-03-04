@@ -5,9 +5,9 @@ Automating Momotor file submissions using a simple Python script.
 ## Usage
 
 * Setup the project.
- * Create a new project (preferably using a virtual environment).
- * Install the dependencies from `requirements.txt` from the banner at the top.
- * Create a run configuration for `submitter.py`, and 
+  * Create a new project (preferably using a virtual environment).
+  * Install the dependencies from `requirements.txt` from the banner at the top.
+  * Create a run configuration for `submitter.py`, and 
 * Provide the following environment variables:
   * SUBMITTER_USERNAME: A valid canvas username.
   * SUBMITTER_PASSWORD: A valid canvas password.
