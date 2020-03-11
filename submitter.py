@@ -43,7 +43,7 @@ else:
 # Submit files.
 all_files = []
 for file in files:
-    all_files.extend(glob.glob(source_dir+file))
+    all_files.extend(glob.glob(source_dir+"\\"+file))
 print("    Submitting", len(all_files), "files...")
 WebDriverWait(browser, 5).until(EC.element_to_be_clickable((By.CLASS_NAME, 'submit_assignment_link'))).click()
 for index, file in enumerate(all_files):
