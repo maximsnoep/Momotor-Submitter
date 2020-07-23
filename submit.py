@@ -21,7 +21,7 @@ def submit_to_canvas(url, username, password, files):
         chrome_options.add_argument("--disable-dev-shm-usage")
         browser = webdriver.Chrome(options=chrome_options)
     else:
-        browser = webdriver.Chrome(executable_path=r'utils/chromedriver.exe', options=chrome_options)
+        browser = webdriver.Chrome(executable_path=r'chromedriver.exe', options=chrome_options)
 
     # go to the url
     browser.get(url)
