@@ -15,13 +15,13 @@ import os
 def submit_to_canvas(url, username, password, files):
     # initializing the WebDriver
     chrome_options = Options()
-    #chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--headless")
     if os.name == 'posix':
         chrome_options.add_argument("--no-sandbox")
         chrome_options.add_argument("--disable-dev-shm-usage")
         browser = webdriver.Chrome(options=chrome_options)
     else:
-        browser = webdriver.Chrome(executable_path=r'chromedriver.exe', options=chrome_options)
+        browser = webdriver.Chrome(executable_path=r'utils/chromedriver.exe', options=chrome_options)
 
     # go to the url
     browser.get(url)
