@@ -34,15 +34,15 @@ def run():
     pass_entry.grid(column=1, row=2, padx=5, pady=2)
 
     # file input
-    files = ()
+    input_files = ()
 
     def select_files(entry):
-        nonlocal files
-        files = (filedialog.askopenfilenames(parent=window, title='Choose files to submit'))
+        nonlocal input_files
+        input_files = (filedialog.askopenfilenames(parent=window, title='Choose files to submit'))
         entry.configure(state='normal')
         entry.delete('1.0', END)
-        for i in range(len(files)):
-            entry.insert('end', '[' + str(i) + '] ' + os.path.basename(files[i]) + "\n")
+        for i in range(len(input_files)):
+            entry.insert('end', '[' + str(i) + '] ' + os.path.basename(input_files[i]) + "\n")
         entry.configure(state='disabled')
 
     file_label = Label(window, text="Files", width=14, anchor="e")
@@ -59,7 +59,7 @@ def run():
         submit_to_canvas(url, username, password, files)
 
     submit_btn = Button(window, text="submit",
-                        command=lambda: submit(url_entry.get(), user_entry.get(), pass_entry.get(), files))
+                        command=lambda: submit(url_entry.get(), user_entry.get(), pass_entry.get(), input_files))
     submit_btn.grid(column=1, row=99, padx=10, pady=20)
 
     total_width = 500
